@@ -1,4 +1,4 @@
-from sklearn.metrics import f1_score, classification_report, multilabel_confusion_matrix, accuracy_score
+from sklearn.metrics import f1_score, classification_report, multilabel_confusion_matrix, accuracy_score, confusion_matrix
 from torchmetrics.classification import MulticlassAveragePrecision, MultilabelAveragePrecision
 import numpy as np
 import torch
@@ -24,7 +24,7 @@ class Metric():
             mm = MulticlassAveragePrecision(num_classes=3, average="weighted", thresholds=None)
             map = mm(torch.Tensor(all_probs), torch.tensor(all_labels))
             report = classification_report(all_labels, preds, target_names=self.severity_levels, zero_division=0, digits=4)
-            conf_matrix = None
+            conf_matrix = confusion_matrix(all_labels, preds)
             accuracy = None
         metrics = {
             'classification_report': report,
