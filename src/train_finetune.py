@@ -101,6 +101,8 @@ def main(args):
         print(weather_metrics['confusion_matrix'])
         print('\nSeverity Classification Report:')
         print(severity_metrics['classification_report'])
+        print('\nSeverity Confusion Matrix:')
+        print(severity_metrics['confusion_matrix'])
         print('-' * 50)
     if args.pretrain == 'True':
         torch.save(model.state_dict(), f'{args.output_path}finetune_{args.timm_model_name}_pretrain.pth')

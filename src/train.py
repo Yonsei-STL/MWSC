@@ -104,6 +104,8 @@ def main(args):
         print(weather_metrics['confusion_matrix'])
         print('\nSeverity Classification Report:')
         print(severity_metrics['classification_report'])
+        print('\nSeverity Confusion Matrix:')
+        print(severity_metrics['confusion_matrix'])
         print('-' * 50)
     
     if args.ablation_mode == 1:
